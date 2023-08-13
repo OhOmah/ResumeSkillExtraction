@@ -17,7 +17,7 @@ class BERTClass(torch.nn.Module):
             "bert-base-uncased", return_dict=False
         )
         self.l2 = torch.nn.Dropout(0.3)
-        self.l3 = torch.nn.Linear(len, 22)
+        self.l3 = torch.nn.Linear(768, len)
 
     def forward(self, ids, mask, token_type_ids):
         _, output_1 = self.l1(ids, attention_mask=mask, token_type_ids=token_type_ids)
