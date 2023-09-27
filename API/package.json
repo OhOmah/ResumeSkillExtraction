@@ -1,0 +1,11 @@
+{
+  "name": "resume-skill-extract",
+  "version": "1.0.0",
+  "description": "an front facing interface linked to an api to extract job titles from a resume and run those job titles through a deep learning model to extract skills that were not listed on that job",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "omar zaffar",
+  "license": "ISC"
+}
