@@ -48,7 +48,7 @@ async def pull_job_titles():
 
 @app.post("/pullskills")
 async def pull_skills():
-
+    
 
     return
     
