@@ -14,6 +14,7 @@ function FileForm() {
         const formData = new FormData();
         formData.append('file_upload', file)
 
+
         try {
             const endpoint = "http://localhost:8000/uploadfile/"
             const response = await fetch(endpoint, {
@@ -31,6 +32,27 @@ function FileForm() {
         }
     }
 
+    const handleJobTitles = async (event) => {
+        event.preventDefault();
+
+        try {
+            const endpoint = "http://localhost:8000/pulljobtitles"
+            const response = await fetch(endpoint, {
+                method: "POST",
+                body: "test"
+            });
+
+            if (response.ok) {
+                console.log("Job Titles Pulled Successfully!")
+            } else {
+                console.error("Failed to run model.");
+            }
+        } catch(error) {
+            console.error(error);
+        }
+    }
+    
+
     return (
         <div>
             <h1>Upload File</h1>
@@ -44,6 +66,15 @@ function FileForm() {
             </form>
 
             { file && <p>{file.name}</p>}
+            <div>
+                <h1>Pull Job Titles</h1>
+
+                <form onSubmit={handleJobTitles}>
+                    <div style= {{ marginBottom: "20px"}}>
+                    </div>
+                    <button type="submit">Pull Job Titles</button>
+                </form>
+            </div>
         </div>
     )
 }
